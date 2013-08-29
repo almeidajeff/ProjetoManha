@@ -1,0 +1,3 @@
+Executar:
+# Pegar alterações do banco: e-mail do candidato único.
+python manage.py migrate concursos  
