@@ -15,7 +15,7 @@ class Candidato(models.Model):
     nome = CharField(max_length=100)
     email = EmailField()
 
-class Inscricao(models.Model):
+class Inscricao(model.Model):
     """Inscrições de candidatos em concursos."""
     data_hora = DateTimeField(auto_now_add=True, blank=True)
     candidato = ForeignKey(Candidato)
