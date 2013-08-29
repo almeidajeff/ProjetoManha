@@ -9,17 +9,27 @@ class Concurso(models.Model):
     """ Dados do concurso """
     titulo = CharField(max_length=200)
     data = DateField()
+    
+    def __unicode__(self):
+        return titulo
 
 class Candidato(models.Model):
     """Dados do candidato que pode inscrever-se em um concurso."""
     nome = CharField(max_length=100)
-    email = EmailField()
+    email = EmailField(unique=True)
+    
+    def __unicode__(self):
+        return nome
 
 class Inscricao(models.Model):
     """Inscrições de candidatos em concursos."""
     data_hora = DateTimeField(auto_now_add=True, blank=True)
     candidato = ForeignKey(Candidato)
     concurso = models.ForeignKey(Concurso)
+    
+    def __unicode__(self):
+        "%s em %s" % (candidato, concurso) 
+    
     class Meta:
         # O mesmo candidato não pode inscrever-se duas vezes em um mesmo concurso
         # https://docs.djangoproject.com/en/dev/ref/models/options/#unique-together
