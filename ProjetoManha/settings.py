@@ -126,7 +126,6 @@ INSTALLED_APPS = (
      'django.contrib.admindocs',
      'concursos',
      'south',
-     'ldap_sync'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -188,16 +187,17 @@ AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=groups,dc=test",
 )
 
 AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
-AUTH_LDAP_REQUIRE_GROUP = "cn=grupo1,dc=groups,dc=test"
+AUTH_LDAP_REQUIRE_GROUP = "cn=grupo_ativos,dc=groups,dc=test"
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {
-    "is_active": "cn=active,ou=django,ou=groups,dc=example,dc=com",
-    "is_staff": "cn=staff,ou=django,ou=groups,dc=example,dc=com",
-    "is_superuser": "cn=superuser,ou=django,ou=groups,dc=example,dc=com"
+    "is_active": "cn=grupo_ativos,dc=groups,dc=test",
+    "is_staff": "cn=grupo_staff,dc=groups,dc=test",
+    "is_superuser": "cn=grupo2,dc=groups,dc=test"
 }
 
 AUTH_LDAP_PROFILE_FLAGS_BY_GROUP = {
-    "is_awesome": "cn=awesome,ou=django,ou=groups,dc=example,dc=com",
+    "is_concursos_changeadd": "cn=concursos_changeadd,dc=groups,dc=test",
+    "is_concursos_delete": "cn=concursos_delete,dc=groups,dc=test",
 }
 
 

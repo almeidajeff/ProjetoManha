@@ -6,6 +6,35 @@ dn: dc=groups,dc=test
 objectClass: domain
 dc: groups
 
+dn: cn=grupo_concursos_changeadd,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: grupo1
+member: uid=usuario1a,dc=users,dc=test
+member: uid=usuario2,dc=users,dc=test
+
+dn: cn=grupo_concursos_delete,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: grupo1
+member: uid=usuario2,dc=users,dc=test
+member: uid=usuario3,dc=users,dc=test
+
+dn: cn=grupo_ativos,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: grupo1
+member: uid=usuario1a,dc=users,dc=test
+member: uid=usuario2,dc=users,dc=test
+member: uid=usuario3,dc=users,dc=test
+
+dn: cn=grupo_staff,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: grupo1
+member: uid=usuario1a,dc=users,dc=test
+member: uid=usuario2,dc=users,dc=test
+
 dn: cn=grupo1,dc=groups,dc=test
 objectClass: top
 objectClass: groupOfNames
