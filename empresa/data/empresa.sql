@@ -27,7 +27,7 @@ CREATE TABLE `auth_group` (
   `name` varchar(80) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +36,7 @@ CREATE TABLE `auth_group` (
 
 LOCK TABLES `auth_group` WRITE;
 /*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+INSERT INTO `auth_group` VALUES (1,'empresa_admin'),(2,'grupo1');
 /*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +55,7 @@ CREATE TABLE `auth_group_permissions` (
   UNIQUE KEY `group_id` (`group_id`,`permission_id`),
   KEY `auth_group_permissions_5f412f9a` (`group_id`),
   KEY `auth_group_permissions_83d7f98b` (`permission_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +64,7 @@ CREATE TABLE `auth_group_permissions` (
 
 LOCK TABLES `auth_group_permissions` WRITE;
 /*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+INSERT INTO `auth_group_permissions` VALUES (1,1,22),(2,1,23),(3,1,24),(4,1,25),(5,1,26),(6,1,27);
 /*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +117,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +126,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$10000$HEsCFajzTkhQ$8MSigInqQqZj/AfroOxFaZtKvmk5lqFBE4F8e5Sde+o=','2013-08-30 13:17:10',1,'admin','','','admin@mp.rs.gov.br',1,1,'2013-08-30 13:15:06'),(4,'1','2013-08-30 13:33:14',0,'carlosdb','Carlos','','',0,1,'2013-08-30 13:33:14'),(5,'1','2013-08-30 13:33:31',0,'fmartins','Fabiano','','',0,1,'2013-08-30 13:33:31'),(6,'1','2013-08-30 13:33:47',0,'costa','Marco','','',0,1,'2013-08-30 13:33:47'),(7,'1','2013-08-30 13:34:54',0,'claudio','Cláudio','','',0,1,'2013-08-30 13:34:54'),(8,'1','2013-08-30 13:35:21',0,'otavio','Otávio','','',0,1,'2013-08-30 13:35:21'),(9,'1','2013-08-30 13:35:41',0,'fabiorosa','Fábio','','',0,1,'2013-08-30 13:35:41');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$10000$HEsCFajzTkhQ$8MSigInqQqZj/AfroOxFaZtKvmk5lqFBE4F8e5Sde+o=','2013-08-30 15:09:27',1,'admin','','','admin@mp.rs.gov.br',1,1,'2013-08-30 13:15:06'),(4,'1','2013-08-30 13:33:14',0,'carlosdb','Carlos','','',0,1,'2013-08-30 13:33:14'),(5,'1','2013-08-30 15:41:17',0,'fmartins','Fabiano','Martins','fmartins@mprs.mp.br',1,1,'2013-08-30 13:33:31'),(6,'1','2013-08-30 13:33:47',0,'costa','Marco','','',0,1,'2013-08-30 13:33:47'),(7,'1','2013-08-30 13:34:54',0,'claudio','Cláudio','','',0,1,'2013-08-30 13:34:54'),(8,'1','2013-08-30 13:35:21',0,'otavio','Otávio','','',0,1,'2013-08-30 13:35:21'),(9,'1','2013-08-30 13:35:41',0,'fabiorosa','Fábio','','',0,1,'2013-08-30 13:35:41'),(10,'!','2013-08-30 15:24:51',1,'usuario2','Usuario 2','Usuario 2','usuario2@mail.com',1,1,'2013-08-30 15:20:46');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +145,7 @@ CREATE TABLE `auth_user_groups` (
   UNIQUE KEY `user_id` (`user_id`,`group_id`),
   KEY `auth_user_groups_6340c63c` (`user_id`),
   KEY `auth_user_groups_5f412f9a` (`group_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,6 +154,7 @@ CREATE TABLE `auth_user_groups` (
 
 LOCK TABLES `auth_user_groups` WRITE;
 /*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+INSERT INTO `auth_user_groups` VALUES (2,5,1),(3,5,2);
 /*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +173,7 @@ CREATE TABLE `auth_user_user_permissions` (
   UNIQUE KEY `user_id` (`user_id`,`permission_id`),
   KEY `auth_user_user_permissions_6340c63c` (`user_id`),
   KEY `auth_user_user_permissions_83d7f98b` (`permission_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,6 +183,83 @@ CREATE TABLE `auth_user_user_permissions` (
 LOCK TABLES `auth_user_user_permissions` WRITE;
 /*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
 /*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `concursos_candidato`
+--
+
+DROP TABLE IF EXISTS `concursos_candidato`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `concursos_candidato` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `concursos_candidato_email_5f58adc6d49e082c_uniq` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `concursos_candidato`
+--
+
+LOCK TABLES `concursos_candidato` WRITE;
+/*!40000 ALTER TABLE `concursos_candidato` DISABLE KEYS */;
+/*!40000 ALTER TABLE `concursos_candidato` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `concursos_concurso`
+--
+
+DROP TABLE IF EXISTS `concursos_concurso`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `concursos_concurso` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(200) NOT NULL,
+  `data` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `concursos_concurso`
+--
+
+LOCK TABLES `concursos_concurso` WRITE;
+/*!40000 ALTER TABLE `concursos_concurso` DISABLE KEYS */;
+/*!40000 ALTER TABLE `concursos_concurso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `concursos_inscricao`
+--
+
+DROP TABLE IF EXISTS `concursos_inscricao`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `concursos_inscricao` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data_hora` datetime,
+  `candidato_id` int(11) NOT NULL,
+  `concurso_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `concursos_inscricao_candidato_id_366e9ff43df92668_uniq` (`candidato_id`,`concurso_id`),
+  KEY `concursos_inscricao_d65eb8a8` (`candidato_id`),
+  KEY `concursos_inscricao_d35c0eed` (`concurso_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `concursos_inscricao`
+--
+
+LOCK TABLES `concursos_inscricao` WRITE;
+/*!40000 ALTER TABLE `concursos_inscricao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `concursos_inscricao` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -201,7 +281,7 @@ CREATE TABLE `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_6340c63c` (`user_id`),
   KEY `django_admin_log_37ef4eb4` (`content_type_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +290,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2013-08-30 13:17:31',1,8,'1','Unidade de Aplicativos e Internet',1,''),(2,'2013-08-30 13:32:46',1,3,'2','carlosdb',3,''),(3,'2013-08-30 13:32:57',1,3,'3','fmartins',3,''),(4,'2013-08-30 13:33:31',1,9,'4','Carlos',1,''),(5,'2013-08-30 13:33:47',1,9,'5','Fabiano',1,''),(6,'2013-08-30 13:34:05',1,9,'6','Marco',1,''),(7,'2013-08-30 13:34:23',1,8,'2','Unidade de Ddesenvolvimento de Sistemas',1,''),(8,'2013-08-30 13:34:31',1,8,'3','Unidade de Equipamentos',1,''),(9,'2013-08-30 13:34:43',1,8,'4','Unidade de Apoio ao Usuário',1,''),(10,'2013-08-30 13:35:21',1,9,'7','Cláudio',1,''),(11,'2013-08-30 13:35:41',1,9,'8','Otávio',1,''),(12,'2013-08-30 13:36:38',1,9,'9','Fábio',1,'');
+INSERT INTO `django_admin_log` VALUES (1,'2013-08-30 13:17:31',1,8,'1','Unidade de Aplicativos e Internet',1,''),(2,'2013-08-30 13:32:46',1,3,'2','carlosdb',3,''),(3,'2013-08-30 13:32:57',1,3,'3','fmartins',3,''),(4,'2013-08-30 13:33:31',1,9,'4','Carlos',1,''),(5,'2013-08-30 13:33:47',1,9,'5','Fabiano',1,''),(6,'2013-08-30 13:34:05',1,9,'6','Marco',1,''),(7,'2013-08-30 13:34:23',1,8,'2','Unidade de Ddesenvolvimento de Sistemas',1,''),(8,'2013-08-30 13:34:31',1,8,'3','Unidade de Equipamentos',1,''),(9,'2013-08-30 13:34:43',1,8,'4','Unidade de Apoio ao Usuário',1,''),(10,'2013-08-30 13:35:21',1,9,'7','Cláudio',1,''),(11,'2013-08-30 13:35:41',1,9,'8','Otávio',1,''),(12,'2013-08-30 13:36:38',1,9,'9','Fábio',1,''),(13,'2013-08-30 15:21:45',10,2,'1','empresa_admin',1,''),(14,'2013-08-30 15:29:56',10,3,'5','fmartins',2,'Changed password and user_permissions.'),(15,'2013-08-30 15:30:49',10,3,'5','fmartins',2,'Changed password, groups and user_permissions.'),(16,'2013-08-30 15:31:15',10,3,'5','fmartins',2,'Changed password and groups.');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -263,7 +343,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('22gq2h1s5bd9bgo97cc3lmuxoevrsib3','YzA4OTgxMGYwNjkwMzAyMzdhNzRiZTI5NThjNGQ0YjY1Y2RlM2U1YTqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEDVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==','2013-09-13 13:17:10');
+INSERT INTO `django_session` VALUES ('22gq2h1s5bd9bgo97cc3lmuxoevrsib3','YzA4OTgxMGYwNjkwMzAyMzdhNzRiZTI5NThjNGQ0YjY1Y2RlM2U1YTqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHEDVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==','2013-09-13 13:17:10'),('8zoqzb71dry4boz065nryu3v1dtvuuau','YmNlY2FjMmQyNjcxMGU1YWE0YTcyNTdhMzcwN2IyZmIyNzY2NmJlOTqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSRkamFuZ29fYXV0aF9sZGFwLmJhY2tlbmQuTERBUEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEKdS4=','2013-09-13 15:24:51'),('0ft9stso0jkttaiotzo9su74hxxg1oxe','OTNmMmY4ZjBjNWQyNzhmZTczODE3NjIxYmI2ZWZkZjFiZGM1Mjk1MTqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSRkamFuZ29fYXV0aF9sZGFwLmJhY2tlbmQuTERBUEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEFdS4=','2013-09-13 15:41:17'),('a64qvdwbr788zi3d1z3exf6ubjp6jnqm','OTNmMmY4ZjBjNWQyNzhmZTczODE3NjIxYmI2ZWZkZjFiZGM1Mjk1MTqAAn1xAShVEl9hdXRoX3VzZXJfYmFja2VuZHECVSRkamFuZ29fYXV0aF9sZGFwLmJhY2tlbmQuTERBUEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEEigEFdS4=','2013-09-13 15:24:05');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -377,4 +457,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-30 11:15:28
+-- Dump completed on 2013-08-30 12:47:41
