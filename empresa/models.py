@@ -3,6 +3,7 @@ from django.db.models import fields
 from django.contrib.auth.models import User
 from django.db.models.fields.related import ForeignKey
 from django.contrib.admin.options import ModelAdmin
+from django import forms
 
 # Create your models here.
 
@@ -21,6 +22,3 @@ class Funcionario(User):
     
     class Meta:
         verbose_name = 'Funcionario'
-        
-    class Admin(ModelAdmin):
-        pass
