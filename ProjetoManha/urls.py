@@ -11,6 +11,7 @@ urlpatterns = patterns('',
 
 
     url(r'^concursos/', include('concursos.urls')),
+    url(r'^empresa/', include('empresa.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
