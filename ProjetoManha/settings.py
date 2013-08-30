@@ -199,11 +199,11 @@ AUTH_LDAP_USER_FLAGS_BY_GROUP = {
     "is_superuser": "cn=grupo2,dc=groups,dc=test"
 }
 
-AUTH_LDAP_PROFILE_FLAGS_BY_GROUP = {
-    "is_concursos_changeadd": "cn=concursos_changeadd,dc=groups,dc=test",
-    "is_concursos_delete": "cn=concursos_delete,dc=groups,dc=test",
-}
+#AUTH_LDAP_PROFILE_FLAGS_BY_GROUP = {
+#    "is_empresa_admin": "cn=empresa_admin,dc=groups,dc=test",
+#}
 
+AUTH_LDAP_MIRROR_GROUPS = True
 
 AUTHENTICATION_BACKENDS = (
     'django_auth_ldap.backend.LDAPBackend',

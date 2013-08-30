@@ -27,6 +27,12 @@ cn: grupo1
 member: uid=usuario1a,dc=users,dc=test
 member: uid=usuario2,dc=users,dc=test
 member: uid=usuario3,dc=users,dc=test
+member: uid=fmartins,dc=users,dc=test
+member: uid=otavio,dc=users,dc=test
+member: uid=fabirosa,dc=users,dc=test
+member: uid=costa,dc=users,dc=test
+member: uid=carlosdb,dc=users,dc=test
+member: uid=claudio,dc=users,dc=test
 
 dn: cn=grupo_staff,dc=groups,dc=test
 objectClass: top
@@ -34,6 +40,18 @@ objectClass: groupOfNames
 cn: grupo1
 member: uid=usuario1a,dc=users,dc=test
 member: uid=usuario2,dc=users,dc=test
+member: uid=fmartins,dc=users,dc=test
+member: uid=fabirosa,dc=users,dc=test
+member: uid=costa,dc=users,dc=test
+member: uid=carlosdb,dc=users,dc=test
+
+dn: cn=empresa_admin,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: empresa_admin
+member: uid=fmartins,dc=users,dc=test
+member: uid=costa,dc=users,dc=test
+member: uid=carlosdb,dc=users,dc=test
 
 dn: cn=grupo1,dc=groups,dc=test
 objectClass: top
@@ -82,4 +100,49 @@ cn: Usuario 3
 sn: Usuario 3
 uid: usuario3
 userpassword: senha3
+
+dn: uid=carlosdb,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Carlos Eduardo
+mail: carlosdb@mprs.mp.br
+sn: Dutra Brum
+uid: carlosdb
+userpassword: senha
+
+dn: uid=claudio,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Cláudio
+sn: César
+uid: claudio
+userpassword: senha
+
+dn: uid=costa,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Marco Aurélio
+mail: costa@mprs.mp.br
+sn: Martins Costa
+uid: costa
+userpassword: senha
+
+dn: uid=fabirosa,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Fabiano
+sn: Gandin Rosa
+uid: fabirosa
+userpassword: senha
+
+dn: uid=fmartins,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Fabiano
+mail: fmartins@mprs.mp.br
+sn: Martins
+uid: fmartins
+userpassword: senha
+
+dn: uid=otavio,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Otávio
+sn: da Silva
+uid: otavio
+userpassword: senha
 
