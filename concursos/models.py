@@ -24,10 +24,14 @@ class Candidato(models.Model):
 
 class Inscricao(models.Model):
     """Inscrições de candidatos em concursos."""
-    #data_hora = DateTimeField(default=datetime.now(), blank=True)
-    data_hora = DateTimeField('data inscricao', blank=True, null=True)
+    data_hora = DateTimeField(editable=False)
     candidato = ForeignKey(Candidato)
     concurso = models.ForeignKey(Concurso)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.data_hora = datetime.today()
+        return super(Inscricao, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return u'%s -- %s' % (self.candidato.nome, self.concurso.titulo)
@@ -35,4 +39,4 @@ class Inscricao(models.Model):
     class Meta:
         # O mesmo candidato não pode inscrever-se duas vezes em um mesmo concurso
         # https://docs.djangoproject.com/en/dev/ref/models/options/#unique-together
-        unique_together = ('candidato', 'concurso') 
+        unique_together = ('candidato', 'concurso')
