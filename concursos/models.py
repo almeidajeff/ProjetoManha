@@ -35,8 +35,3 @@ class Inscricao(models.Model):
 
     def __unicode__(self):
         return u'%s -- %s' % (self.candidato.nome, self.concurso.titulo)
-    
-    class Meta:
-        # O mesmo candidato não pode inscrever-se duas vezes em um mesmo concurso
-        # https://docs.djangoproject.com/en/dev/ref/models/options/#unique-together
-        unique_together = ('candidato', 'concurso')

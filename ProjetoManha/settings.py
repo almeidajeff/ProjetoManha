@@ -130,6 +130,7 @@ INSTALLED_APPS = (
      'concursos',
      'empresa',
      'south',
+     'ldap_sync'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -160,3 +161,57 @@ LOGGING = {
         },
     }
 }
+
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
+
+AUTH_LDAP_SERVER_URI = "ldap://127.0.0.1"
+
+
+AUTH_LDAP_CONNECTION_OPTIONS = {
+    ldap.OPT_REFERRALS: 0
+}
+
+import ldap
+from django_auth_ldap.config import LDAPSearch
+
+AUTH_LDAP_BIND_DN = ""
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch("dc=users,dc=test",
+    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+AUTH_LDAP_USER_ATTR_MAP = {
+    "first_name": "cn",
+    "last_name": "sn",
+    "email": "mail"
+}
+
+
+AUTH_LDAP_GROUP_SEARCH = LDAPSearch("dc=groups,dc=test",
+    ldap.SCOPE_SUBTREE, "(objectClass=groupOfNames)"
+)
+
+AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr="cn")
+AUTH_LDAP_REQUIRE_GROUP = "cn=grupo1,dc=groups,dc=test"
+
+AUTH_LDAP_USER_FLAGS_BY_GROUP = {
+    "is_active": "cn=active,ou=django,ou=groups,dc=example,dc=com",
+    "is_staff": "cn=staff,ou=django,ou=groups,dc=example,dc=com",
+    "is_superuser": "cn=superuser,ou=django,ou=groups,dc=example,dc=com"
+}
+
+AUTH_LDAP_PROFILE_FLAGS_BY_GROUP = {
+    "is_awesome": "cn=awesome,ou=django,ou=groups,dc=example,dc=com",
+}
+
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+
+
+
+

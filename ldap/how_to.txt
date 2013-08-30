@@ -1,0 +1,26 @@
+1) logue-se como root : su - root
+
+ -> yum install openldap-devel
+ -> pip install -r requirements.txt (Não executar como root, e dar um activate no python do virtualvenv)
+ 
+2) instale os pacotes necessários : yum install openldap-servers openldap-clients
+
+3) gere um arquivo DB_CONFIG inicial : egrep -v "^#|^$" /usr/share/openldap-servers/DB_CONFIG.example > /var/lib/ldap/DB_CONFIG
+
+5) remova as configurações antigas do OpenLDAP : rm -rf /etc/openldap/slapd.d/*
+
+6) gere um /tmp/slapd.conf básico com o conteúdo do slapd.conf em anexo
+
+7) Inicialize a base Berkely DB: echo "" | slapadd -b dc=test -f /tmp/slapd.conf
+
+8) converta o /tmp/slapd.conf para o modelo cn=config : slaptest -f /tmp/slapd.conf -F /etc/openldap/slapd.d/
+
+9) Acerte as permissões : chown -R ldap.ldap /var/lib/ldap /etc/openldap/slapd.d && chmod -R u+rwX /etc/openldap/slapd.d
+
+10) Habilite o serviço slapd a iniciar automaticamente no boot : chkconfig slapd on
+
+11) Inicie o serviço slapd : /etc/init.d/slapd start
+
+12) Carregue a base (arquivo base.ldif em anexo) com o comando ldapadd -D cn=Manager,dc=test -h localhost -w senha -f /tmp/base.ldif
+
+13) Teste: ldapsearch -x -h localhost -b dc=test -D uid=usuario3,dc=users,dc=test -w senha3

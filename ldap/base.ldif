@@ -1,0 +1,56 @@
+dn: dc=test
+objectClass: domain
+dc: test
+
+dn: dc=groups,dc=test
+objectClass: domain
+dc: groups
+
+dn: cn=grupo1,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: grupo1
+member: uid=usuario1a,dc=users,dc=test
+member: uid=usuario1b,dc=users,dc=test
+
+dn: cn=grupo2,dc=groups,dc=test
+objectClass: top
+objectClass: groupOfNames
+cn: grupo1
+member: uid=usuario2,dc=users,dc=test
+
+dn: dc=users,dc=test
+objectClass: domain
+dc: users
+
+dn: uid=usuario1b,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Usuario 1 B
+mail: usuario1b@mail.com
+sn: Usuario 1 B
+uid: usuario1b
+userpassword: senha1b
+
+dn: uid=usuario1a,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Usuario 1 A
+mail: usuario1a@mail.com
+sn: Usuario 1 A
+uid: usuario1a
+userpassword: senha1a
+
+dn: uid=usuario2,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Usuario 2
+mail: usuario2@mail.com
+sn: Usuario 2
+uid: usuario2
+userpassword: senha2
+
+dn: uid=usuario3,dc=users,dc=test
+objectClass: inetOrgPerson
+cn: Usuario 3
+sn: Usuario 3
+uid: usuario3
+userpassword: senha3
+
