@@ -19,7 +19,7 @@ class Inscricao(models.Model):
     """Inscrições de candidatos em concursos."""
     data_hora = DateTimeField(auto_now_add=True, blank=True)
     candidato = ForeignKey(Candidato)
-    concurso = models.ForeignKey(Concurso)
+    concurso = ForeignKey(Concurso)
     class Meta:
         # O mesmo candidato não pode inscrever-se duas vezes em um mesmo concurso
         # https://docs.djangoproject.com/en/dev/ref/models/options/#unique-together
