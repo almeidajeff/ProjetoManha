@@ -33,3 +33,5 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+concursos/concurso-2013-08-30-1019.sql
+concursos/concursos-2013-08-30-1019.sql

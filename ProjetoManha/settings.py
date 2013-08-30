@@ -1,4 +1,5 @@
 # Django settings for ProjetoManha project.
+from django.conf.global_settings import DATABASE_ROUTERS
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,14 +13,16 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'concursos',                      # Or path to database file if using sqlite3.
+        'NAME': 'empresa',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
-    }
+    },
 }
+
+#DATABASE_ROUTERS = ['ProjetoManha.dbrouters.Empresa']
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -125,6 +128,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
      'concursos',
+     'empresa',
      'south',
 )
 
